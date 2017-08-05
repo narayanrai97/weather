@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            .left {
+                display: inline-block;
+                padding-right: 20px;
+            }
+
+            .right {
+                display: inline-block;
+            }
+
+            .temp {
+                font-size: 1.4em;
+                font-weight: bold;
+            }
+
+            #current img {
+                width: 80px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Weather</h1>
+            <div class="input-group">
+                <input class="form-control" name="city" placeholder="City">
+                <span class="input-group-btn">
+                    <button class="btn btn-default">Go</button>
+                </span>
+            </div>
+
+            <div id="current">
+                <div class="left">
+                    <img src="http://openweathermap.org/img/w/10d.png">
+                    <div class="weather">Light Rain</div>
+                </div>
+                <div class="rigt">
+                    <div class="temp">Temp: 80</div>
+                    <div class="humidity">Humidity: 85%</div>
+                    <div class="wind">Wind: W 10 mph</div>
+                </div>
+            </div>
+
+            <ul id="forecast" class="list-group">
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Sunday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Monday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Tuesday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Wednesday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Thursday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Friday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+                <li class="forecast list-group-item">
+                    <div class="left">
+                        <img src="http://openweathermap.org/img/w/10d.png">
+                        <div class="day">Saturday</div>
+                    </div>
+                    <div class="right">
+                        <div class="temp">80</div>
+                        <div class="weather">Light Rain</div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </body>
+</html>
