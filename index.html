@@ -1,7 +1,7 @@
 <html>
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <style>
             .left {
@@ -12,7 +12,6 @@
             .right {
                 display: inline-block;
             }
-
             .temp {
                 font-size: 1.4em;
                 font-weight: bold;
@@ -23,102 +22,114 @@
             }
         </style>
     </head>
-
     <body>
-        <div class="container">
-            <h1>Weather</h1>
-            <div class="input-group">
-                <input class="form-control" name="city" placeholder="City">
-                <span class="input-group-btn">
-                    <button class="btn btn-default">Go</button>
-                </span>
-            </div>
+       <div class="container">
+           <h1>Weather</h1>
+           <div class="input-group">
+               <input id="city" class="form-control" name="city" placeholder="City">
+               <span class="input-group-btn">
+                   <button class="btn btn-default" onclick="update()">Go</button>
+               </span>
+           </div>
 
-            <div id="current">
+           <div id="current" style="display: none;">
+              <div class="left">
+              <span id="icon"></span>
+              <div class="weather"><span id="description"></span></div>
+              </div>
+              <div class="right">
+                  <div class="temp">Temp: <span id="temp"></span></div>
+                  <div class="humidity">Humdity: <span id="humidity"></span>%</div>
+                  <div class="wind">Wind: <span id="speed"></span> MPH</div>
+              </div>
+           </div>
+
+           <ul id="forecast" style="display: none;" class="list-group">
+               <li class="forecast list-group-item">
                 <div class="left">
-                    <img src="http://openweathermap.org/img/w/10d.png">
-                    <div class="weather">Light Rain</div>
+                    <span id="f1-icon"></span>
+                    <div id="f1-day" class="day"></div>
                 </div>
-                <div class="rigt">
-                    <div class="temp">Temp: 80</div>
-                    <div class="humidity">Humidity: 85%</div>
-                    <div class="wind">Wind: W 10 mph</div>
+                <div class="right">
+                    <div class="temp"><span id="f1-temp"></span></div>
+                    <div id="f1-description" class="weather"></div>
                 </div>
-            </div>
+              </li>
+              <li class="forecast list-group-item">
+                <div class="left">
+                    <span id="f2-icon"></span>
+                    <div id="f2-day" class="day"></div>
+                </div>
+                <div class="right">
+                    <div class="temp"><span id="f2-temp"></span></div>
+                    <div id="f2-description" class="weather"></div>
+                </div>
+              </li>
+              <li class="forecast list-group-item">
+                <div class="left">
+                    <span id="f3-icon"></span>
+                    <div id="f3-day" class="day"></div>
+                </div>
+                <div class="right">
+                    <div class="temp"><span id="f3-temp"></span></div>
+                    <div id="f3-description" class="weather"></div>
+                </div>
+              </li>
+              <li class="forecast list-group-item">
+                <div class="left">
+                    <span id="f4-icon"></span>
+                    <div id="f4-day" class="day"></div>
+                </div>
+                <div class="right">
+                    <div class="temp"><span id="f4-temp"></span></div>
+                    <div id="f4-description" class="weather"></div>
+                </div>
+              </li>
+              <li class="forecast list-group-item">
+                <div class="left">
+                    <span id="f5-icon"></span>
+                    <div id="f5-day" class="day"></div>
+                </div>
+                <div class="right">
+                    <div class="temp"><span id="f5-temp"></span></div>
+                    <div id="f5-description" class="weather"></div>
+                </div>
+              </li>
+           </ul>
+       </div>
+       <script type="text/javascript">
+            function update(){
+                var city = $('#city').val();
+                var url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=05fde913b0084c1779ab46578fb39d45";
 
-            <ul id="forecast" class="list-group">
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Sunday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Monday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Tuesday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Wednesday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Thursday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Friday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-                <li class="forecast list-group-item">
-                    <div class="left">
-                        <img src="http://openweathermap.org/img/w/10d.png">
-                        <div class="day">Saturday</div>
-                    </div>
-                    <div class="right">
-                        <div class="temp">80</div>
-                        <div class="weather">Light Rain</div>
-                    </div>
-                </li>
-            </ul>
+                $.ajax({url: url}).done(function(response){
+                    console.log(response);
+                    $('#temp').html(response.main.temp);
+                    $('#humidity').html(response.main.humidity);
+                    $('#speed').html(response.wind.speed);
+                    $('#icon').html('<img src="https://openweathermap.org/img/w/'+response.weather[0].icon+'.png">');
+                    $('#description').html(response.weather[0].description);
+                    $('#current').show();
+                });
 
-        </div>
+                var days = ['Sunday', 'Monday', 'Tuesday', "Wednesday", 'Thursday', 'Friday', 'Saturday'];
+
+                var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=05fde913b0084c1779ab46578fb39d45";
+                $.ajax({url: forecastUrl}).done(function(response){
+                    var j = 1;
+                    for(var i = 3; i < response.list.length; i += 8){
+                        item = response.list[i];
+                        $('#f'+j+'-temp').html(item.main.temp);
+                        $('#f'+j+'-icon').html('<img src="https://openweathermap.org/img/w/'+item.weather[0].icon+'.png">');
+                        $('#f'+j+'-description').html(item.weather[0].description);
+                        var day = new Date(item.dt_txt);
+                        $('#f'+j+'-day').html(days[day.getDay()]);
+                        console.log(item);
+                        j += 1;
+                    }
+                    $('#forecast').show();
+                });
+            }
+       </script>
     </body>
 </html>
